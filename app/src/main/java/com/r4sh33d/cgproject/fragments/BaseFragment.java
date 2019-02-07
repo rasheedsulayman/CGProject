@@ -1,6 +1,8 @@
-package com.r4sh33d.cgproject;
+package com.r4sh33d.cgproject.fragments;
 
 import android.support.v4.app.Fragment;
+
+import com.r4sh33d.cgproject.R;
 
 public abstract class BaseFragment extends Fragment {
 
