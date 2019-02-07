@@ -1,12 +1,11 @@
 package com.r4sh33d.cgproject;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import com.r4sh33d.cgproject.fragments.MenuFragment;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,11 +14,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        replaceFragment(new MenuFragment());
     }
 
-    @OnClick(R.id.opengl_demo_button)
-    public void onClickOpenGLDemoButton(){
-        Timber.d("Button clicked");
-        startActivity(new Intent(this, OpenGLES20Activity.class));
+    public void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.view_container, fragment)
+                .commit();
     }
 }

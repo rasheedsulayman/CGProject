@@ -2,7 +2,7 @@ package com.r4sh33d.cgproject.shapes;
 
 import android.opengl.GLES20;
 
-import com.r4sh33d.cgproject.MyGLRenderer;
+import com.r4sh33d.cgproject.gl_engine.MyGLRenderer;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -14,6 +14,7 @@ public class Polygon {
     private int mColorHandle;
 
     private final int vertexCount = polygonCoords.length / COORDS_PER_VERTEX;
+
     private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
 
 

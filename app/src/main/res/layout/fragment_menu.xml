@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="WELCOME"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:text="The purpose of this application is to introduce basic OpenGL primitives and provide interactive demo of the primitives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:text="Please select from list of primitives from the button below to get started"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="20dp"
+            android:id="@+id/gl_points"
+            android:text="GL POINTS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="4dp"
+            android:id="@+id/gl_lines"
+            android:text="GL LINES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="4dp"
+            android:id="@+id/gl_triangles"
+            android:text="GL TRIANGLES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="4dp"
+            android:id="@+id/gl_rectangles"
+            android:text="GL RECTANGLES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="4dp"
+            android:id="@+id/gl_polygons"
+            android:text="GL POLYGONS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

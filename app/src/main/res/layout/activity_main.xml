@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_margin="16dp"
-        android:orientation="vertical"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="@android:color/white"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@android:color/white" />
 
-        <TextView
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="WELCOME"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+    <FrameLayout
+        android:id="@+id/view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:text="The purpose of this application is to introduce basic OpenGL primitives and provide interactive demo of the primitives"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_marginTop="100dp"
-            android:id="@+id/opengl_demo_button"
-            android:text="OpenGL Demo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

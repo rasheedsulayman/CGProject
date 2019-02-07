@@ -1,9 +1,11 @@
-package com.r4sh33d.cgproject;
+package com.r4sh33d.cgproject.gl_engine;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 
-class MyGLSurfaceView extends GLSurfaceView {
+import com.r4sh33d.cgproject.gl_engine.MyGLRenderer;
+
+public  class MyGLSurfaceView extends GLSurfaceView {
 
     private final MyGLRenderer mRenderer;
 

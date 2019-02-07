@@ -1,4 +1,4 @@
-package com.r4sh33d.cgproject;
+package com.r4sh33d.cgproject.gl_engine;
 
 
 import android.opengl.GLES20;
@@ -16,6 +16,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private Triangle mTriangle;
     private Square   mSquare;
     private Polygon mPolygon;
+
 
 
     @Override
