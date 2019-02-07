@@ -4,6 +4,7 @@ package com.r4sh33d.cgproject;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
+import com.r4sh33d.cgproject.shapes.Polygon;
 import com.r4sh33d.cgproject.shapes.Square;
 import com.r4sh33d.cgproject.shapes.Triangle;
 
@@ -14,6 +15,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private Triangle mTriangle;
     private Square   mSquare;
+    private Polygon mPolygon;
 
 
     @Override
@@ -22,6 +24,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         // initialize a triangle
         mTriangle = new Triangle();
+        mPolygon = new Polygon();
         // initialize a square
         mSquare = new Square();
     }
@@ -34,7 +37,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-        mTriangle.draw();
+      //  mTriangle.draw();
+        mPolygon.draw();
     }
 
 
