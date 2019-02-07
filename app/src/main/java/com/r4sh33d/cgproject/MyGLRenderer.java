@@ -34,7 +34,6 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-
         mTriangle.draw();
     }
 
@@ -48,7 +47,6 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         // add the source code to the shader and compile it
         GLES20.glShaderSource(shader, shaderCode);
         GLES20.glCompileShader(shader);
-
         return shader;
     }
 
