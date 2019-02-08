@@ -22,9 +22,9 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.r4sh33d.cgproject.BasicPrimitiveGLES20Activity;
 import com.r4sh33d.cgproject.ColorUtil;
 import com.r4sh33d.cgproject.ElementType;
-import com.r4sh33d.cgproject.OpenGLES20Activity;
 import com.r4sh33d.cgproject.PolygonConfig;
 import com.r4sh33d.cgproject.R;
 import com.r4sh33d.cgproject.VerticesProvider;
@@ -159,9 +159,9 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
 
         boolean animate = animateCheckBox.isChecked();
         PolygonConfig polygonConfig = new PolygonConfig(colorPicked, polygonCoords, animate);
-        Intent intent = new Intent(getContext(), OpenGLES20Activity.class);
-        intent.putExtra(OpenGLES20Activity.EXTRA_ELEMENT_TYPE, elementType);
-        intent.putExtra(OpenGLES20Activity.EXTRA_POLYGON_CONFIG, polygonConfig);
+        Intent intent = new Intent(getContext(), BasicPrimitiveGLES20Activity.class);
+        intent.putExtra(BasicPrimitiveGLES20Activity.EXTRA_ELEMENT_TYPE, elementType);
+        intent.putExtra(BasicPrimitiveGLES20Activity.EXTRA_POLYGON_CONFIG, polygonConfig);
         Timber.d("Polygon config: " + polygonConfig);
         startActivity(intent);
     }
@@ -175,7 +175,7 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
             verticesNo = Integer.parseInt(verticesStri);
         }
 
-        if (verticesNo < 5) {
+        if (verticesNo < 0) {
             verticesNo = 5;
         }
 
@@ -184,6 +184,18 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
         }
 
         switch (verticesNo) {
+            case 1:
+                polygonCoords = VerticesProvider.VERTEX_1;
+                break;
+            case 2:
+                polygonCoords = VerticesProvider.VERTEX_2;
+                break;
+            case 3:
+                polygonCoords = VerticesProvider.VERTEX_3;
+                break;
+            case 4:
+                polygonCoords = VerticesProvider.VERTEX_4;
+                break;
             case 5:
                 polygonCoords = VerticesProvider.VERTEX_5;
                 break;

@@ -2,7 +2,7 @@ package com.r4sh33d.cgproject.shapes;
 
 import android.opengl.GLES20;
 
-import com.r4sh33d.cgproject.gl_engine.MyGLRenderer;
+import com.r4sh33d.cgproject.gl_engine.BasicPrimitiveGLRenderer;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -63,9 +63,9 @@ public class Triangle {
 
         //---
 
-        int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
+        int vertexShader = BasicPrimitiveGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
                 vertexShaderCode);
-        int fragmentShader = MyGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER,
+        int fragmentShader = BasicPrimitiveGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER,
                 fragmentShaderCode);
 
         // create empty OpenGL ES Program

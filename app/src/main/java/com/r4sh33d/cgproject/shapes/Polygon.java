@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 
 import com.r4sh33d.cgproject.ElementType;
 import com.r4sh33d.cgproject.PolygonConfig;
-import com.r4sh33d.cgproject.gl_engine.MyGLRenderer;
+import com.r4sh33d.cgproject.gl_engine.BasicPrimitiveGLRenderer;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -24,7 +24,6 @@ public class Polygon {
 
     private int vertexCount;
     private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
-    // float colorPicked[] = {0.0f, 0.0f, 1.0f, 1.0f};
 
 
     private FloatBuffer vertexBuffer;
@@ -70,9 +69,9 @@ public class Polygon {
 
         //----------
 
-        int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
+        int vertexShader = BasicPrimitiveGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
                 vertexShaderCode);
-        int fragmentShader = MyGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER,
+        int fragmentShader = BasicPrimitiveGLRenderer.loadShader(GLES20.GL_FRAGMENT_SHADER,
                 fragmentShaderCode);
 
         // create empty OpenGL ES Program

@@ -6,17 +6,17 @@ import android.opengl.GLSurfaceView;
 import com.r4sh33d.cgproject.ElementType;
 import com.r4sh33d.cgproject.PolygonConfig;
 
-public  class MyGLSurfaceView extends GLSurfaceView {
+public  class BasicPrimitiveGLSurfaceView extends GLSurfaceView {
 
-    private final MyGLRenderer mRenderer;
+    private final BasicPrimitiveGLRenderer mRenderer;
 
-    public MyGLSurfaceView(Context context ,  ElementType elementType, PolygonConfig polygonConfig){
+    public BasicPrimitiveGLSurfaceView(Context context , ElementType elementType, PolygonConfig polygonConfig){
         super(context);
 
         // Create an OpenGL ES 2.0 context
         setEGLContextClientVersion(2);
 
-        mRenderer = new MyGLRenderer(elementType, polygonConfig);
+        mRenderer = new BasicPrimitiveGLRenderer(elementType, polygonConfig);
 
         // Set the Renderer for drawing on the GLSurfaceView
         setRenderer(mRenderer);

@@ -27,7 +27,11 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name=".OpenGLES20Activity"></activity>
+            android:name=".BasicPrimitiveGLES20Activity"></activity>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".pyramid.PyramidActivity"></activity>
     </application>
 
 </manifest>

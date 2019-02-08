@@ -52,6 +52,32 @@ public class VerticesProvider {
             0.4f, 0.6f, 0.0f
     };
 
+
+    public static float VERTEX_1[] = {
+            -0.5f, 0.5f, 0.0f
+    };
+
+    public static float VERTEX_2[] = {
+            -0.5f, 0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f
+    };
+
+
+    public static float VERTEX_3[] = {
+            -0.5f, 0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f,
+            0.5f, -0.5f, 0.0f
+    };
+
+
+    public static float VERTEX_4[] = {
+            -0.5f, 0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f,
+            0.5f, -0.5f, 0.0f,
+            0.5f, 0.5f, 0.0f
+    };
+
+
     public static float VERTEX_5[] = {
             -0.5f, 0.5f, 0.0f,
             -0.5f, -0.5f, 0.0f,
