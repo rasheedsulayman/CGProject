@@ -4,9 +4,7 @@ import android.content.Context;
 import android.opengl.GLSurfaceView;
 
 import com.r4sh33d.cgproject.ElementType;
-import com.r4sh33d.cgproject.OpenGLES20Activity;
 import com.r4sh33d.cgproject.PolygonConfig;
-import com.r4sh33d.cgproject.shapes.Polygon;
 
 public  class MyGLSurfaceView extends GLSurfaceView {
 
