@@ -12,21 +12,31 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:layout_gravity="center_horizontal"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:text="WELCOME"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="8dp"/>
 
         <TextView
-            android:text="The purpose of this application is to introduce basic OpenGL primitives and provide interactive demo of the primitives"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+            android:text="Computer graphics Demo App"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:textSize="16dp"
+            android:text="The purpose of this application is to introduce basic OpenGL primitives and provide interactive demo of the primitives. It will serve as quick reference to basic open gl building blocks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"/>
 
         <TextView
+            android:textSize="15dp"
             android:text="Please select from list of primitives from the button below to get started"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -11,9 +11,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -56,6 +58,8 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
     @BindView(R.id.page_title_textview)
     TextView pageTitleTextView;
 
+    @BindView(R.id.vertices_edit_text)
+    EditText verticesEditText;
 
     private String elementDetails = "";
     private String pageTitle = "";
@@ -148,6 +152,11 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
 
     @OnClick(R.id.draw_button)
     public void onClickDrawButton() {
+
+        if (verticesCardView.getVisibility() == View.VISIBLE) {
+            setVerticesFromUserInput();
+        }
+
         boolean animate = animateCheckBox.isChecked();
         PolygonConfig polygonConfig = new PolygonConfig(colorPicked, polygonCoords, animate);
         Intent intent = new Intent(getContext(), OpenGLES20Activity.class);
@@ -157,6 +166,47 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
         startActivity(intent);
     }
 
+
+    void setVerticesFromUserInput() {
+        int verticesNo = 0;
+        String verticesStri = verticesEditText.getText().toString();
+
+        if (!TextUtils.isEmpty(verticesStri)) {
+            verticesNo = Integer.parseInt(verticesStri);
+        }
+
+        if (verticesNo < 5) {
+            verticesNo = 5;
+        }
+
+        if (verticesNo > 10) {
+            verticesNo = 10;
+        }
+
+        switch (verticesNo) {
+            case 5:
+                polygonCoords = VerticesProvider.VERTEX_5;
+                break;
+            case 6:
+                polygonCoords = VerticesProvider.VERTEX_6;
+                break;
+            case 7:
+                polygonCoords = VerticesProvider.VERTEX_7;
+                break;
+            case 8:
+                polygonCoords = VerticesProvider.VERTEX_8;
+                break;
+            case 9:
+                polygonCoords = VerticesProvider.VERTEX_9;
+                break;
+            case 10:
+                polygonCoords = VerticesProvider.VERTEX_10;
+                break;
+            default:
+                polygonCoords = VerticesProvider.POLYGON;
+                break;
+        }
+    }
 
     @Override
     public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {

@@ -32,7 +32,7 @@ public class MenuFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setToolbarTitle("CPE 505 Demo App");
+        setToolbarTitle("CSC 514 Demo App");
     }
 
     @OnClick(R.id.gl_points)
