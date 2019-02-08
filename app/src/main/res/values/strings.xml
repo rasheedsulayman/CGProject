@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="color">Color</string>
+    <string name="done">done</string>
+    <string name="cancel">cancel</string>
+    <string name="back">back</string>
 </resources>

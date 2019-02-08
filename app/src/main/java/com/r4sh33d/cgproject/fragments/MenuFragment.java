@@ -13,7 +13,6 @@ import butterknife.OnClick;
 
 public class MenuFragment extends Fragment {
 
-
     public MenuFragment() {
         // Required empty public constructor
     }
@@ -26,7 +25,6 @@ public class MenuFragment extends Fragment {
         ButterKnife.bind(this, view);
         return view;
     }
-
 
 
     @OnClick(R.id.gl_points)
@@ -43,7 +41,6 @@ public class MenuFragment extends Fragment {
     public void onClickGlTriangles(){
 
     }
-
 
     @OnClick(R.id.gl_lines)
     public void onClickGlPolygons(){
