@@ -30,19 +30,36 @@ public class Polygon {
     private FloatBuffer vertexBuffer;
     private int mProgram;
 
-    private final String vertexShaderCode =
+   /* private final String vertexShaderCode =
             "attribute vec4 vPosition;" +
                     "void main() {" +
                     "  gl_Position = vPosition;" +
                     "gl_PointSize = 15.0;" +
                     "}";
-
+*/
     private final String fragmentShaderCode =
             "precision mediump float;" +
                     "uniform vec4 vColor;" +
                     "void main() {" +
                     "  gl_FragColor = vColor;" +
                     "}";
+
+
+    private final String vertexShaderCode =
+            // This matrix member variable provides a hook to manipulate
+            // the coordinates of the objects that use this vertex shader
+            "uniform mat4 uMVPMatrix;" +
+                    "attribute vec4 vPosition;" +
+                    "gl_PointSize = 15.0;" +
+                    "void main() {" +
+                    // the matrix must be included as a modifier of gl_Position
+                    // Note that the uMVPMatrix factor *must be first* in order
+                    // for the matrix multiplication product to be correct.
+                    "  gl_Position = uMVPMatrix * vPosition;" +
+                    "}";
+
+    // Use to access and set the view transformation
+    private int mMVPMatrixHandle;
 
 
     public Polygon(PolygonConfig polygonConfig, ElementType elementType) {
@@ -88,7 +105,7 @@ public class Polygon {
         GLES20.glLinkProgram(mProgram);
     }
 
-    public void draw() {
+    public void draw(float[] mvpMatrix) {
         GLES20.glUseProgram(mProgram);
 
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
@@ -99,13 +116,29 @@ public class Polygon {
                 GLES20.GL_FLOAT, false,
                 vertexStride, vertexBuffer);
 
-        mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
+       // mColorHandle = GLES20.glGetUniformLocation(mProgram, "vColor");
 
-        GLES20.glUniform4fv(mColorHandle, 1, color, 0);
+     //   GLES20.glUniform4fv(mColorHandle, 1, color, 0);
+
+
+
+
+
+        mMVPMatrixHandle = GLES20.glGetUniformLocation(mProgram, "uMVPMatrix");
+
+        // Pass the projection and view transformation to the shader
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mvpMatrix, 0);
+
+
+
+
 
         GLES20.glDrawArrays(elementType.openGLDrawMode, 0, vertexCount);
 
         GLES20.glDisableVertexAttribArray(mPositionHandle);
+
+
+
     }
 
 }
