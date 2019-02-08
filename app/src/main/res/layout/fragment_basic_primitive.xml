@@ -111,6 +111,7 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
+                    android:checked="true"
                     android:id="@+id/right_angled_triangle_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

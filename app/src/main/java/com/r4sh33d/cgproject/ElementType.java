@@ -13,4 +13,10 @@ public enum ElementType {
         this.openGLDrawMode = openGLDrawMode;
     }
 
+    @Override
+    public String toString() {
+        return "ElementType{" +
+                "openGLDrawMode=" + openGLDrawMode +
+                '}';
+    }
 }

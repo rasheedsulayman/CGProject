@@ -6,13 +6,13 @@ import android.view.View;
 public class ViewUtils {
     public static void show(@NonNull View... views) {
         for (View view : views) {
-            show(view);
+            view.setVisibility(View.VISIBLE);
         }
     }
 
     public static void hide(@NonNull View... views) {
         for (View view : views) {
-            hide(view);
+            view.setVisibility(View.GONE);
         }
     }
 }

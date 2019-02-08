@@ -3,6 +3,8 @@ package com.r4sh33d.cgproject;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Arrays;
+
 public class PolygonConfig implements Parcelable {
 
     public float[] color;
@@ -44,4 +46,14 @@ public class PolygonConfig implements Parcelable {
             return new PolygonConfig[size];
         }
     };
+
+
+    @Override
+    public String toString() {
+        return "PolygonConfig{" +
+                "color=" + Arrays.toString(color) +
+                ", polygonCoord=" + Arrays.toString(polygonCoord) +
+                ", animate=" + animate +
+                '}';
+    }
 }

@@ -22,8 +22,9 @@ public class Polygon {
     // number of coordinates per vertex in this array
     static final int COORDS_PER_VERTEX = 3;
 
-    private  int vertexCount;
+    private int vertexCount;
     private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
+    // float colorPicked[] = {0.0f, 0.0f, 1.0f, 1.0f};
 
 
     private FloatBuffer vertexBuffer;
@@ -33,6 +34,7 @@ public class Polygon {
             "attribute vec4 vPosition;" +
                     "void main() {" +
                     "  gl_Position = vPosition;" +
+                    "gl_PointSize = 15.0;" +
                     "}";
 
     private final String fragmentShaderCode =
@@ -43,28 +45,13 @@ public class Polygon {
                     "}";
 
 
-
-    public Polygon (PolygonConfig polygonConfig, ElementType elementType) {
+    public Polygon(PolygonConfig polygonConfig, ElementType elementType) {
         this.elementType = elementType;
         this.polygonCoords = polygonConfig.polygonCoord;
         this.color = polygonConfig.color;
         vertexCount = polygonCoords.length / COORDS_PER_VERTEX;
         init();
     }
-
-/*    float polygonCoords[] = {   // in counterclockwise order:
-            -0.5f, 0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.5f, 0.5f, 0.0f,
-            0.4f, 0.6f, 0.0f
-    };*/
-
-    // Set color with red, green, blue and alpha (opacity) values
-   // float color[] = {1.0f, 0.0f, 0.0f, 1.0f};
-
-
-
 
     public void init() {
         // initialize vertex byte buffer for shape coordinates
@@ -116,8 +103,9 @@ public class Polygon {
 
         GLES20.glUniform4fv(mColorHandle, 1, color, 0);
 
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, vertexCount);
+        GLES20.glDrawArrays(elementType.openGLDrawMode, 0, vertexCount);
 
         GLES20.glDisableVertexAttribArray(mPositionHandle);
     }
+
 }

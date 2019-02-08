@@ -8,16 +8,11 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+
 public class Triangle {
 
-    private int mPositionHandle;
-    private int mColorHandle;
-
-    private final int vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
-    private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
-
-    private FloatBuffer vertexBuffer;
     private final int mProgram;
+
 
     private final String vertexShaderCode =
             "attribute vec4 vPosition;" +
@@ -31,6 +26,14 @@ public class Triangle {
                     "void main() {" +
                     "  gl_FragColor = vColor;" +
                     "}";
+
+    private int mPositionHandle;
+    private int mColorHandle;
+
+    private final int vertexCount = triangleCoords.length / COORDS_PER_VERTEX;
+    private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
+
+    private FloatBuffer vertexBuffer;
 
     // number of coordinates per vertex in this array
     static final int COORDS_PER_VERTEX = 3;
@@ -58,7 +61,7 @@ public class Triangle {
         // set the buffer to read the first coordinate
         vertexBuffer.position(0);
 
-        //----------
+        //---
 
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
                 vertexShaderCode);
