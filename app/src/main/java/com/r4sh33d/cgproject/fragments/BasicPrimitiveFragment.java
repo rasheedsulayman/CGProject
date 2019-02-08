@@ -1,6 +1,7 @@
 package com.r4sh33d.cgproject.fragments;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,11 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.r4sh33d.cgproject.ColorUtil;
 import com.r4sh33d.cgproject.ElementType;
+import com.r4sh33d.cgproject.OpenGLES20Activity;
+import com.r4sh33d.cgproject.PolygonConfig;
 import com.r4sh33d.cgproject.R;
 import com.r4sh33d.cgproject.ViewUtils;
 
@@ -109,7 +111,12 @@ public class BasicPrimitiveFragment extends BaseFragment implements ColorChooser
 
     @OnClick(R.id.draw_button)
     public void onClickDrawButton(){
+        boolean animate  = animateCheckBox.isChecked();
+        PolygonConfig polygonConfig = new PolygonConfig(colorPicked, polygonCoords,animate);
 
+        Intent intent = new Intent(getContext(), OpenGLES20Activity.class);
+        intent.putExtra(OpenGLES20Activity.EXTRA_ELEMENT_TYPE , elementType);
+        intent.putExtra(OpenGLES20Activity.EXTRA_POLYGON_CONFIG, polygonConfig);
     }
 
 

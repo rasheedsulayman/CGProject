@@ -2,6 +2,8 @@ package com.r4sh33d.cgproject.shapes;
 
 import android.opengl.GLES20;
 
+import com.r4sh33d.cgproject.ElementType;
+import com.r4sh33d.cgproject.PolygonConfig;
 import com.r4sh33d.cgproject.gl_engine.MyGLRenderer;
 
 import java.nio.ByteBuffer;
@@ -10,16 +12,22 @@ import java.nio.FloatBuffer;
 
 public class Polygon {
 
+    //PolygonConfig polygonConfig;
+    private ElementType elementType;
     private int mPositionHandle;
     private int mColorHandle;
+    float[] color;
+    float[] polygonCoords;
 
-    private final int vertexCount = polygonCoords.length / COORDS_PER_VERTEX;
+    // number of coordinates per vertex in this array
+    static final int COORDS_PER_VERTEX = 3;
 
+    private  int vertexCount;
     private final int vertexStride = COORDS_PER_VERTEX * 4; // 4 bytes per vertex
 
 
     private FloatBuffer vertexBuffer;
-    private final int mProgram;
+    private int mProgram;
 
     private final String vertexShaderCode =
             "attribute vec4 vPosition;" +
@@ -34,21 +42,31 @@ public class Polygon {
                     "  gl_FragColor = vColor;" +
                     "}";
 
-    // number of coordinates per vertex in this array
-    static final int COORDS_PER_VERTEX = 3;
 
-    static float polygonCoords[] = {   // in counterclockwise order:
+
+    public Polygon (PolygonConfig polygonConfig, ElementType elementType) {
+        this.elementType = elementType;
+        this.polygonCoords = polygonConfig.polygonCoord;
+        this.color = polygonConfig.color;
+        vertexCount = polygonCoords.length / COORDS_PER_VERTEX;
+        init();
+    }
+
+/*    float polygonCoords[] = {   // in counterclockwise order:
             -0.5f, 0.5f, 0.0f,
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
             0.5f, 0.5f, 0.0f,
             0.4f, 0.6f, 0.0f
-    };
+    };*/
 
     // Set color with red, green, blue and alpha (opacity) values
-    float color[] = {1.0f, 0.0f, 0.0f, 1.0f};
+   // float color[] = {1.0f, 0.0f, 0.0f, 1.0f};
 
-    public Polygon() {
+
+
+
+    public void init() {
         // initialize vertex byte buffer for shape coordinates
         ByteBuffer bb = ByteBuffer.allocateDirect(
                 // (number of coordinate values * 4 bytes per float)

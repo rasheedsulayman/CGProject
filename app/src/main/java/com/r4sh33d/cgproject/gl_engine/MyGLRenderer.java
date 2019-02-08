@@ -16,18 +16,16 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private Triangle mTriangle;
     private Square   mSquare;
     private Polygon mPolygon;
+    private Polygon polygon;
 
-
+    public MyGLRenderer(Polygon polygon){
+        this.polygon = polygon;
+    }
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-        // initialize a triangle
-        mTriangle = new Triangle();
-        mPolygon = new Polygon();
-        // initialize a square
-        mSquare = new Square();
+        polygon.draw();
     }
 
     @Override
