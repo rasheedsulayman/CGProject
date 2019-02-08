@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.r4sh33d.cgproject.fragments.MenuFragment;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> getSupportFragmentManager().popBackStack());
         replaceFragment(new MenuFragment());
     }
 

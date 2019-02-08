@@ -25,7 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OpenGLES20Activity"></activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".OpenGLES20Activity"></activity>
     </application>
 
 </manifest>
